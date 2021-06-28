@@ -1,17 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDom from 'react-dom'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+/*
+JSX Rules
+Returns single element
+div/section/article or fragment
+use camelCase for html attribute
+className instead of class
+close every element
+formatting 
+*/
+
+function BookList(){
+  return (
+    <section>
+      <Book/>
+    </section>
+  );
+}
+
+const Book = () => {
+  return (
+  <article>
+    <Image/>
+    <Title/>
+    <Aurthor/>
+  </article>
+  );
+}
+
+const Image = () => {
+  return <img src="https://upload.wikimedia.org/wikipedia/en/6/6b/Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg" alt=""/>;
+}
+
+const Title = () => <h2>Harry Potter and the Philospher's stone</h2>;
+
+const Aurthor = () => <h3>J.K Rowling</h3>
+
+ReactDom.render(
+  <BookList />, document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
