@@ -1,6 +1,21 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 
+//CSS
+import './index.css'
+
+//Setup Vars
+const firstbook = {
+  title : "Harry Potter and the Philospher's stone",
+  aurthor : "J.K Rowling",
+  img : "https://upload.wikimedia.org/wikipedia/en/6/6b/Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg"
+}
+const secondbook = {
+  title : "Harry Potter 2",
+  aurthor : "J.K Rowling",
+  img : "https://upload.wikimedia.org/wikipedia/en/6/6b/Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg"
+}
+
 /*
 JSX Rules
 Returns single element
@@ -13,29 +28,23 @@ formatting 
 
 function BookList(){
   return (
-    <section>
-      <Book/>
+    <section className='booklist'>
+      <Book img={firstbook.img} title = {firstbook.title} aurthor = {firstbook.aurthor} />
+      <Book img={secondbook.img} title = {secondbook.title} aurthor = {secondbook.aurthor} />
     </section>
   );
 }
 
-const Book = () => {
+const Book = (props) => {
   return (
-  <article>
-    <Image/>
-    <Title/>
-    <Aurthor/>
+  <article className='book'>
+    <img src={props.img} alt=""/>
+    <h2>{props.title}</h2>
+    <h3>{props.aurthor}</h3>
   </article>
   );
 }
 
-const Image = () => {
-  return <img src="https://upload.wikimedia.org/wikipedia/en/6/6b/Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg" alt=""/>;
-}
-
-const Title = () => <h2>Harry Potter and the Philospher's stone</h2>;
-
-const Aurthor = () => <h3>J.K Rowling</h3>
 
 ReactDom.render(
   <BookList />, document.getElementById('root')
